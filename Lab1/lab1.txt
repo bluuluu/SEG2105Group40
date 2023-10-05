@@ -2,16 +2,21 @@ Answer the following questions with respect to the above designs of the PointCP 
 
     Discuss why it might be useful to allow users of class PointCP (Design 1) to explicitly change the internal storage format, using convertStorageToCartesian or convertStorageToPolar. 
 
-This would prevent the user from needing to use conversion equations such as “Math.toDegrees” each time the wish to get a value from the object. Also, the class does not define setter functions for the user to change instance variable values; as such, the user must be conscious of the object’s typeCoord before setting its parameters. 
+This would prevent the user from needing to use conversion equations such as “Math.toDegrees” each time the wish to get a value from the object. 
+Also, the class does not define setter functions for the user to change instance variable values; as such, 
+the user must be conscious of the object’s typeCoord before setting its parameters. 
 
  
 
     What might be a potential hidden weakness of these methods? Hint: what could happen if one is called, then the other, and this process is repeated numerous times? 
 
-The conversion from one coordinate system to another will result in gradual loss of precision. Evidently, in software, an exact value can almost never be realistically obtained in the number of allocated bits, and even with unlimited storage, some values can never be represented exactly as they cannot exist in base 2. 
+The conversion from one coordinate system to another will result in gradual loss of precision. 
+Evidently, in software, an exact value can almost never be realistically obtained in the number of allocated bits, 
+and even with unlimited storage, some values can never be represented exactly as they cannot exist in base 2. 
 
  
 
     Write a short program to test whether the weakness you discussed in part b is, in fact, real. 
 
-After completing 1000 tests making 10 000 conversions each, the largest percentage difference between the original chosen value and the final value was in the 10^-10 magnitude.
+After completing 1000 tests making 10 000 conversions each, 
+the largest percentage difference between the original chosen value and the final value was in the 10^-10 magnitude.
